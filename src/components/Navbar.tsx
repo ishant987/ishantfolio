@@ -1,100 +1,123 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { personalInfo } from "@/data/portfolio";
+
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = [
-    { label: "Work", href: "#projects" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
-  ];
-
   return (
     <>
       <motion.nav
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        initial={{ opacity: 0, y: -24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55 }}
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#121212]/80 backdrop-blur-xl border-b border-white/[0.04]"
+            ? "border-b border-white/10 bg-[rgba(10,15,26,0.78)] backdrop-blur-xl"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#"
-            className="text-lg font-bold tracking-tight text-white/90 hover:text-white transition-colors"
-          >
-            sweta<span className="text-accent">.</span>
+        <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 md:px-8">
+          <a href="#top" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-sm font-semibold text-white">
+              IS
+            </span>
+            <div>
+              <p className="text-sm font-semibold tracking-[0.02em] text-white">
+                {personalInfo.name}
+              </p>
+              <p className="text-xs text-[var(--muted)]">{personalInfo.role}</p>
+            </div>
           </a>
 
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-7 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-white/40 hover:text-white/80 transition-colors font-medium tracking-wide"
+                className="text-sm text-white/70 transition-colors hover:text-white"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="text-sm font-semibold px-5 py-2 rounded-full bg-white/[0.06] border border-white/[0.08] text-white/70 hover:bg-white/[0.1] hover:text-white transition-all"
-            >
-              Let&apos;s Talk
+            <a href={`mailto:${personalInfo.email}`} className="button-primary">
+              Hire Me
             </a>
           </div>
 
-          {/* Mobile toggle */}
           <button
-            className="md:hidden w-10 h-10 flex items-center justify-center text-white/60"
-            onClick={() => setMenuOpen(!menuOpen)}
+            type="button"
             aria-label="Toggle menu"
+            onClick={() => setMenuOpen((value) => !value)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-white md:hidden"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            >
               {menuOpen ? (
-                <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />
+                <path d="M6 6l12 12M18 6L6 18" />
               ) : (
-                <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                <>
+                  <path d="M4 7h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 17h16" />
+                </>
               )}
             </svg>
           </button>
         </div>
       </motion.nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-[#121212]/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-40 bg-[rgba(7,10,18,0.96)] px-6 pt-28 backdrop-blur-2xl md:hidden"
           >
-            {navLinks.map((link) => (
+            <div className="flex flex-col gap-5">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 text-lg font-medium text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
               <a
-                key={link.label}
-                href={link.href}
+                href={`mailto:${personalInfo.email}`}
                 onClick={() => setMenuOpen(false)}
-                className="text-3xl font-bold text-white/70 hover:text-white transition-colors"
+                className="button-primary mt-2 justify-center"
               >
-                {link.label}
+                Contact Ishant
               </a>
-            ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

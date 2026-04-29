@@ -1,27 +1,211 @@
-- *ACT AS:**
-A Senior Creative Developer (Awwwards-level) specializing in Next.js, Framer Motion, and high-performance scroll interactions.
-**THE TASK:**
-Build a high-end "Scrollytelling" Personal Portfolio Website.
-The core mechanic is a scroll-linked animation that scrubs through an image sequence as the user scrolls down the page.
-**TECH STACK:**
-- Framework: Next.js 14 (App Router)
-- Language: TypeScript
-- Styling: Tailwind CSS
-- Animation: Framer Motion
-- Rendering Strategy: HTML5 Canvas (for performance)
-**ASSETS LOCATION:**
-- I have placed a sequence of WebP images in the folder: `/sequence/`
-- The files are named sequentially (e.g., `frame_00_delay-0.067s.webp`, `frame_01_delay-0.067s.webp`... up to roughly 89 frames).
-**IMPLEMENTATION BLUEPRINT:**
-1. **Global Styles & Reset:** - Set the global background color to a specific hex code (e.g., #121212) to match the background of the video frames. This is CRITICAL for seamless blending. - Use a clean sans-serif font (Inter or San Francisco).
-2. **Component 1: The Sticky Scroller (`ScrollyCanvas.tsx`):** - Create a parent container with a height of `500vh` (to allow for a long, cinematic scroll). - Inside, create a `sticky` container (`top-0 h-screen w-full`). - Use an HTML5 `<canvas>` element to render the images. - Logic: Use Framer Motion's `useScroll` to map the scroll progress (0 to 1) to the image frame index. - **Optimization:** You MUST preload the images in a `useEffect` hook to prevent flickering/white flashes during scroll.
-3. **Component 2: The Parallax Overlay (`Overlay.tsx`):** - Create text sections that sit *on top* of the canvas (z-index 10). - As the user scrolls, these text elements should fade in/out using `motion.div` with parallax speed (move slightly faster or slower than scroll). - **Section 1 (0% scroll):** "My Name. Creative Developer." (Center) - **Section 2 (30% scroll):** "I build digital experiences." (Left aligned) - **Section 3 (60% scroll):** "Bridging design and engineering." (Right aligned)
-4. **Component 3: The Work Grid (`Projects.tsx`):** - Placed *after* the scroll animation finishes (below the 500vh container). - A modern grid layout showcasing 3-4 project case studies. - Style: Glass-morphism cards (backdrop-blur, thin borders, subtle hover glow).
-**EXECUTION RULES:**
-- Do not use a `<video>` tag; use Canvas.
-- Ensure the canvas uses `object-fit: cover` logic so it looks good on Mobile and Desktop.
-- Write clean, modular code.
-**START:**
-Begin by scaffolding the directory structure and writing the `ScrollyCanvas` component.
+# Ishant Shaw — Portfolio Customization Guide
 
-Need modern looking, darkish, website. use nano banana if need more UI components or buttons or anything
+This file documents every section of your portfolio website so you (or any AI) can update it quickly.
+
+---
+
+## 1. PERSONAL INFO
+```
+Name:        Ishant Shaw
+Role:        Associate Software Development Engineer
+Tagline:     "Building software that ships. From CRMs to AI-powered platforms."
+Email:       ishantshaw28@gmail.com
+Phone:       +91 9432503221
+GitHub:      https://github.com/ishant987
+LinkedIn:    https://linkedin.com/in/ishantshaw13
+Location:    Kolkata, India
+```
+
+---
+
+## 2. HERO SECTION
+- **Headline**: Currently reads — *"I Build Things That Work."*
+- **Sub-headline**: Currently reads — *"Full-stack engineer crafting enterprise CRMs, AI platforms, and mobile apps from Kolkata."*
+- **CTA Buttons**: "View Projects" (scrolls to projects) + "Get In Touch" (scrolls to contact)
+- **To change**: Edit the `hero` section in the HTML — the `<h1>` and `<p class="hero-sub">` tags.
+
+---
+
+## 3. PROJECTS SECTION
+Each project card has the following fields. Edit the `projects` array in the `<script>` tag:
+
+### Project 1 — ZRM CRM
+```
+title:       ZRM – Enterprise CRM
+url:         https://zrm.zynapte.in/dashboard
+demo_login:  demoadmin@example.com / 12345678
+tags:        Laravel, PHP, Next.js, ReactJS, MySQL
+description: Full interior managing CRM — lead pipeline, invoicing, TataTeli calling API, multi-tier stock management.
+image:       PLACEHOLDER — replace src with your screenshot URL
+color:       #0f4c81 (deep blue accent)
+```
+
+### Project 2 — Workspace CRM
+```
+title:       Workspace – Futuristic AI CRM
+url:         https://workspace.zynapte.in/
+tags:        NestJS, ReactJS, Next.js, MySQL
+description: Startup productivity suite — Jira-style Kanban, Google Calendar-inspired scheduling, AI-powered workflows.
+image:       PLACEHOLDER — replace src with your screenshot URL
+color:       #7c3aed (violet accent)
+```
+
+### Project 3 — Simbaa
+```
+title:       Simbaa – Playzone Management
+url:         https://simbaa.zynapte.in/dashboard
+tags:        (add your stack here)
+description: Complete playzone and entertainment venue management software.
+image:       PLACEHOLDER — replace src with your screenshot URL
+color:       #059669 (emerald accent)
+```
+
+### Project 4 — MyPlexus
+```
+title:       MyPlexus – Stock Management
+url:         https://www.myplexus.com/
+tags:        (add your stack here)
+description: Full-featured stock and inventory management platform.
+image:       PLACEHOLDER — replace src with your screenshot URL
+color:       #dc2626 (red accent)
+```
+
+### Project 5 — Zivo (Android App)
+```
+title:       Zivo – Offline Invoice Manager
+url:         https://play.google.com/store/apps/details?id=com.zynapte.zivo
+tags:        Flutter, Dart, SQLite
+description: AI-powered voice entry, offline-first POS with ledger and RBAC.
+image:       PLACEHOLDER — replace src with Play Store badge or screenshot
+color:       #f59e0b (amber accent)
+```
+
+### Project 6 — Silicon Infotech Website
+```
+title:       Silicon Infotech – Corporate Website
+url:         https://silicon-infotech-website.vercel.app/
+tags:        (add your stack here)
+description: Corporate website for a tech company.
+image:       PLACEHOLDER
+color:       #0891b2 (cyan accent)
+```
+
+### Project 7 — Synergy Claytech
+```
+title:       Synergy Claytech – Business Website
+url:         https://www.synergyclaytech.com/
+tags:        (add your stack here)
+description: Business website for Synergy Claytech.
+image:       PLACEHOLDER
+color:       #b45309 (brown accent)
+```
+
+### Project 8 — Tulayraa
+```
+title:       Tulayraa – Website
+url:         https://www.tulayraa.com/
+tags:        (add your stack here)
+description: (add description)
+image:       PLACEHOLDER
+color:       #db2777 (pink accent)
+```
+
+### Project 9 — Final Touch
+```
+title:       Final Touch – Website
+url:         https://www.finaltouch.co.in/
+tags:        (add your stack here)
+description: (add description)
+image:       PLACEHOLDER
+color:       #4f46e5 (indigo accent)
+```
+
+---
+
+## 4. HOW TO ADD PROJECT SCREENSHOTS
+1. Take a screenshot of the live project.
+2. Host it on Cloudinary / Imgbb / GitHub repo (public) / your own server.
+3. In the HTML, find `data-img="PLACEHOLDER"` for that project card.
+4. Replace `PLACEHOLDER` with your image URL.
+
+Or tell an AI: *"Replace the image for ZRM with this URL: https://..."*
+
+---
+
+## 5. SKILLS SECTION
+Currently listed skills (edit the `skills` array in `<script>`):
+
+**Languages**: Java, JavaScript, Dart, PHP, Python, C/C++
+
+**Frameworks & Tools**: Flutter, Laravel, Next.js, NestJS, ReactJS, MySQL, SQLite, REST API, Swagger UI, FastAPI, WebRTC, PostgreSQL, Zoho Creator, Deluge Script
+
+---
+
+## 6. WORK EXPERIENCE SECTION
+```
+Company:  Zynapte Technologies Pvt Ltd, Kolkata
+Role:     Associate Software Development Engineer
+Period:   Feb 2026 – Present
+```
+To add more jobs, copy the `<div class="exp-item">` block in the HTML and fill in the new details.
+
+---
+
+## 7. EDUCATION SECTION
+```
+B.Tech – Information Technology
+St. Thomas' College of Engineering & Technology, Kolkata
+CGPA: 8.29 / 10  |  2021–2025
+
+ISC – Class XII
+Gurukul Vidya Mandir Secondary School, Kolkata
+81.16%  |  Feb 2021
+
+ICSE – Class X
+Gurukul Vidya Mandir Secondary School, Kolkata
+77.83%  |  Feb 2019
+```
+
+---
+
+## 8. CONTACT SECTION
+- Email mailto link: `ishantshaw28@gmail.com`
+- GitHub: `https://github.com/ishant987`
+- LinkedIn: `https://linkedin.com/in/ishantshaw13`
+- Play Store: `https://play.google.com/store/apps/details?id=com.zynapte.zivo`
+
+---
+
+## 9. DESIGN / THEME CUSTOMIZATION
+The portfolio uses CSS variables at the top of the `<style>` block:
+
+```css
+--bg:        #0a0a0f   /* main dark background */
+--surface:   #13131a   /* card/panel background */
+--border:    #1e1e2e   /* border color */
+--text:      #e8e8f0   /* primary text */
+--muted:     #6b6b8a   /* secondary/muted text */
+--accent:    #00d4ff   /* primary cyan accent */
+--accent2:   #7c3aed   /* secondary violet accent */
+```
+
+To change the accent color, update `--accent` and `--accent2`.
+To switch to a light theme, change `--bg` to `#f9f9fb` and `--text` to `#111`.
+
+---
+
+## 10. COMMON AI PROMPTS FOR UPDATES
+
+Use these prompts to update the portfolio quickly:
+
+- *"Add a new project called [NAME] with URL [URL], stack [STACK], and description [DESC]"*
+- *"Change the hero tagline to: [NEW TAGLINE]"*
+- *"Add [SKILL] to the skills section"*
+- *"Replace the image for [PROJECT NAME] with this URL: [URL]"*
+- *"Change the accent color to [COLOR]"*
+- *"Add a new work experience: [ROLE] at [COMPANY] from [DATE] to [DATE]"*
+- *"Remove the [PROJECT NAME] card from the projects section"*
+
+---
+
+*Last updated: April 2026*

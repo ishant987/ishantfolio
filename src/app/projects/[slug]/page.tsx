@@ -1,66 +1,13 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import { projects } from "@/data/portfolio";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-// Define project details using the specific data provided in the CV
-const projectsData: Record<string, any> = {
-  "credit-card-analysis": {
-    title: "Credit Card Transaction Analysis",
-    category: "Data Analysis",
-    date: "May 2024",
-    client: "Internal Data Science Project",
-    role: "Data Analyst",
-    overview:
-      "A comprehensive analysis of a large credit card transaction dataset. The project focused on uncovering deep spending patterns across various geographic regions, diverse demographics, and specific card types to drive strategic business decisions.",
-    technologies: ["MySQL", "Advanced Excel"],
-    outcomes: [
-      "Identified the top 5 cities contributing to 58.6% of the total spending.",
-      "Highlighted key high-value markets essential for targeted marketing campaigns.",
-      "Translated raw analytical findings into clear, impactful visual summaries and business insights.",
-    ],
-    coverGradient: "from-[#a78bfa]/20 via-[#121212] to-[#121212]",
-    accentColor: "text-[#a78bfa]",
-  },
-  "food-beverage-insights": {
-    title: "Food & Beverage Consumer Insights",
-    category: "Data Visualization",
-    date: "Aug 2023",
-    client: "Market Research Initiative",
-    role: "Data Analyst",
-    overview:
-      "An in-depth study of consumer behaviour based on survey data collected from 10,000 respondents across 10 major cities. This project focused on understanding brand perception and defining product preferences.",
-    technologies: ["MySQL", "Power BI"],
-    outcomes: [
-      "Built interactive Power BI dashboards to effectively visualize complex survey insights.",
-      "Identified Bangalore, Hyderabad, and Mumbai as high-potential core markets.",
-      "Formulated actionable recommendations based on evolving consumer response patterns.",
-    ],
-    coverGradient: "from-[#f59e0b]/20 via-[#121212] to-[#121212]",
-    accentColor: "text-[#f59e0b]",
-  },
-  "sales-performance-dashboard": {
-    title: "Regional Sales Performance Dashboard",
-    category: "Dashboard Design",
-    date: "Mar 2023",
-    client: "Global Sales Strategy Project",
-    role: "Data Analyst",
-    overview:
-      "Designed and implemented a sophisticated, interactive Excel dashboard targeted at monitoring and decoding regional sales performance across Europe, North America, and the Pacific regions.",
-    technologies: ["Advanced Excel", "Data Segmentation"],
-    outcomes: [
-      "Identified North America as the leading global region, driving 41.5% of total international purchases.",
-      "Performed advanced segmentation analysis to isolate the highest-value core customer demographics (specifically the 31–54 age bracket).",
-      "Created an automated tracking system saving hours of manual data collation each week.",
-    ],
-    coverGradient: "from-[#34d399]/20 via-[#121212] to-[#121212]",
-    accentColor: "text-[#34d399]",
-  },
-};
-
 export function generateStaticParams() {
-  return Object.keys(projectsData).map((slug) => ({
-    slug: slug,
+  return projects.map((project) => ({
+    slug: project.slug,
   }));
 }
 
@@ -69,98 +16,141 @@ export default function ProjectDetail({
 }: {
   params: { slug: string };
 }) {
-  const project = projectsData[params.slug];
+  const project = projects.find((item) => item.slug === params.slug);
 
   if (!project) {
     notFound();
   }
 
   return (
-    <main className="bg-[#121212] min-h-screen">
+    <main className="project-page-light">
       <Navbar />
 
-      {/* Hero Section */}
-      <section
-        className={`relative pt-40 pb-24 md:pt-52 md:pb-32 px-6 md:px-12 lg:px-20 bg-gradient-to-b ${project.coverGradient}`}
-      >
-        <div className="max-w-4xl mx-auto">
-          <Link
-            href="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors mb-8 md:mb-12"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
-            Back to Projects
-          </Link>
-          
-          <div className="flex items-center gap-4 mb-6">
-            <span
-              className={`text-xs uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] ${project.accentColor}`}
+      <section className="project-hero-shell">
+        <div
+          className="project-page-glow project-page-glow-one"
+          aria-hidden="true"
+          style={{
+            background: `radial-gradient(circle, ${project.accent}26 0%, transparent 72%)`,
+          }}
+        />
+        <div
+          className="project-page-glow project-page-glow-two"
+          aria-hidden="true"
+          style={{
+            background: `radial-gradient(circle, ${project.accent}18 0%, transparent 72%)`,
+          }}
+        />
+        <div className="mx-auto max-w-7xl px-3 pb-16 pt-32 md:px-5 md:pb-24 md:pt-40">
+          <div className="project-detail-shell overflow-hidden p-6 md:p-8">
+            <Link
+              href="/#projects"
+              className="inline-flex items-center gap-2 text-sm text-slate-500 transition-colors hover:text-slate-950"
             >
-              {project.category}
-            </span>
-            <span className="text-xs text-white/30 font-mono tracking-wider">
-              {project.date}
-            </span>
-          </div>
+              <span aria-hidden="true">←</span>
+              Back to projects
+            </Link>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white/95 leading-[1.05] mb-8">
-            {project.title}
-          </h1>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-white/[0.06] mt-12 mb-8">
-             <div>
-                <h4 className="text-xs uppercase tracking-[0.15em] text-white/30 mb-2 font-semibold">My Role</h4>
-                <p className="text-sm text-white/80">{project.role}</p>
-             </div>
-             <div>
-                <h4 className="text-xs uppercase tracking-[0.15em] text-white/30 mb-2 font-semibold">Client</h4>
-                <p className="text-sm text-white/80">{project.client}</p>
-             </div>
-             <div className="col-span-2 md:col-span-2">
-                <h4 className="text-xs uppercase tracking-[0.15em] text-white/30 mb-2 font-semibold">Tools Used</h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech: string) => (
-                    <span key={tech} className="text-sm text-white/80">
-                      {tech}
-                      <span className="last:hidden opacity-30 mx-2">•</span>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <span
+                className="rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                style={{
+                  color: project.accent,
+                  backgroundColor: `${project.accent}18`,
+                }}
+              >
+                {project.category}
+              </span>
+              <span className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                {project.year}
+              </span>
+              <span className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                {project.status}
+              </span>
+            </div>
+
+            <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.05em] text-slate-950 md:text-6xl">
+              {project.title}
+            </h1>
+            <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 md:text-lg">
+              {project.overview}
+            </p>
+
+            {project.image ? (
+              <div className="project-shot-frame mt-10 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.08)]">
+                <div className="relative flex min-h-[280px] items-center justify-center bg-slate-50 p-3 md:min-h-[420px] md:p-4">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-contain object-center"
+                    sizes="100vw"
+                    priority
+                  />
+                </div>
+              </div>
+            ) : null}
+
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
+              <div className="project-meta-card">
+                <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
+                  Project Link
+                </p>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-block break-all text-sm text-slate-900"
+                >
+                  {project.url}
+                </a>
+              </div>
+              <div className="project-meta-card md:col-span-2">
+                <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
+                  Tech Stack
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="tag-chip-light">
+                      {tag}
                     </span>
                   ))}
                 </div>
-             </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="py-12 md:py-20 px-6 md:px-12 lg:px-20">
-        <div className="max-w-3xl mx-auto space-y-16">
-          <div>
-            <h3 className="text-2xl font-bold text-white/90 mb-6 flex items-center gap-3">
-              <span className={`${project.accentColor}`}>01.</span> Project Overview
-            </h3>
-            <p className="text-base md:text-lg text-white/60 leading-relaxed font-light">
+      <section className="section-shell pt-0">
+        <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="project-detail-shell p-8 md:p-10">
+            <p className="section-eyebrow-light">Overview</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+              What this project delivers
+            </h2>
+            <p className="mt-5 text-sm leading-8 text-slate-600 md:text-base">
+              {project.description}
+            </p>
+            <p className="mt-5 text-sm leading-8 text-slate-600 md:text-base">
               {project.overview}
             </p>
           </div>
 
-          <div>
-            <h3 className="text-2xl font-bold text-white/90 mb-6 flex items-center gap-3">
-              <span className={`${project.accentColor}`}>02.</span> Key Analytical Highlights
-            </h3>
-            <div className="space-y-4">
-              {project.outcomes.map((outcome: string, index: number) => (
-                <div key={index} className="flex items-start gap-4 p-6 rounded-2xl glass-card">
-                  <div className={`mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-current ${project.accentColor}`} />
-                  <p className="text-base text-white/70 leading-relaxed font-light">
-                    {outcome}
+          <div className="project-detail-shell p-8 md:p-10">
+            <p className="section-eyebrow-light">Highlights</p>
+            <div className="mt-6 space-y-4">
+              {project.highlights.map((highlight) => (
+                <div
+                  key={highlight}
+                  className="rounded-2xl border border-slate-200 bg-white p-5"
+                >
+                  <p className="text-sm leading-7 text-slate-700">
+                    {highlight}
                   </p>
                 </div>
               ))}
             </div>
-          </div>
-          
-          <div className="pt-8">
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
           </div>
         </div>
       </section>

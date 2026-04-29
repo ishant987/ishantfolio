@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sweta Sah — Data Analyst Portfolio",
+  title: "Ishant Shaw | Associate Software Development Engineer",
   description:
-    "A Data Analyst portfolio showcasing data operations, SQL, and Power BI expertise. Built with Next.js and Tailwind CSS.",
+    "Portfolio of Ishant Shaw, a software engineer from Kolkata building CRMs, AI-powered platforms, mobile apps, and polished business websites.",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <head>
@@ -22,15 +22,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body>
-        {/* Subtle film-grain noise overlay */}
-        <div className="noise-overlay" aria-hidden="true" />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
