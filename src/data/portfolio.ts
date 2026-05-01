@@ -273,4 +273,24 @@ export const projects: Project[] = [
       "Delivered a responsive experience that stays easy to scan.",
     ],
   },
+  {
+    slug: "findrealestate-property-platform",
+    title: "FindRealEstate - Property Platform",
+    shortTitle: "FindRealEstate",
+    category: "Real Estate Platform",
+    url: "https://findrealestate.com/",
+    description:
+      "Real estate search platform connecting buyers and sellers with expert agents and a clear path to finding properties.",
+    overview:
+      "A modern real estate platform built to simplify property discovery, agent connections, and the paperwork journey — all under one roof.",
+    tags: ["Real Estate", "Property Search", "Web Platform"],
+    accent: "#1a1a2e",
+    year: "2025",
+    status: "Live",
+    highlights: [
+      "Built a full-featured property search and listing experience.",
+      "Integrated agent discovery and connection flows for buyers.",
+      "Delivered a clean, conversion-focused interface across the platform.",
+    ],
+  },
 ];
