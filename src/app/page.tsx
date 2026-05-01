@@ -14,9 +14,9 @@ export default function Home() {
 
         <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-20 pt-32 md:px-8 md:pb-24 md:pt-40 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
-            <p className="section-eyebrow">Portfolio 2026</p>
+            <p className="section-eyebrow">Portfolio</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.96] tracking-[-0.06em] text-white md:text-7xl lg:text-[5.5rem]">
-              I build software that ships.
+              I build software that ships .
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--muted-strong)] md:text-lg">
               {personalInfo.intro}
