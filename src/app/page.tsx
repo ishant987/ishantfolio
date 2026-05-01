@@ -16,7 +16,7 @@ export default function Home() {
           <div>
             <p className="section-eyebrow">Portfolio</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.96] tracking-[-0.06em] text-white md:text-7xl lg:text-[5.5rem]">
-              I build software that ships .
+              I build software that ships.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--muted-strong)] md:text-lg">
               {personalInfo.intro}
@@ -27,7 +27,7 @@ export default function Home() {
 
             <div className="mt-9 flex flex-wrap gap-3">
               <a href="#projects" className="button-primary">
-                View Projects
+                View  Projects
               </a>
               <a href="#contact" className="button-secondary">
                 Get In Touch
