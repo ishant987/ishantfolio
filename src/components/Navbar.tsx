@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ forceScrolled = false }: { forceScrolled?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -29,7 +29,7 @@ export default function Navbar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55 }}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled
+          scrolled || forceScrolled
             ? "border-b border-white/10 bg-[rgba(10,15,26,0.78)] backdrop-blur-xl"
             : "bg-transparent"
         }`}

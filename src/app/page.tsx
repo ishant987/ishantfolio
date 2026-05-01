@@ -5,8 +5,8 @@ import { metrics, personalInfo } from "@/data/portfolio";
 
 export default function Home() {
   return (
-    <main id="top">
-      <Navbar />
+    <main id="top" className="home-light">
+      <Navbar forceScrolled />
 
       <section className="hero-shell">
         <div className="hero-orb hero-orb-one" aria-hidden="true" />

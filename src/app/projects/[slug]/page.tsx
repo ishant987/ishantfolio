@@ -24,7 +24,7 @@ export default function ProjectDetail({
 
   return (
     <main className="project-page-light">
-      <Navbar />
+      <Navbar forceScrolled />
 
       <section className="project-hero-shell">
         <div

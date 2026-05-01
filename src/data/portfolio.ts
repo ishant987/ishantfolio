@@ -89,6 +89,90 @@ export const education = [
 
 export const projects: Project[] = [
   {
+    slug: "jeskojets-aviation-website",
+    title: "JeskoJets - Aviation Charter Website",
+    shortTitle: "JeskoJets",
+    category: "Aviation Website",
+    url: "https://jeskojets.com/",
+    description:
+      "Premium aviation charter website built to present private jet services with a high-end, trust-driven digital experience.",
+    overview:
+      "A luxury-focused website for a private aviation brand, designed to convert high-value visitors through polished presentation, seamless navigation, and a clear path to booking.",
+    tags: ["Aviation", "Luxury Brand", "Frontend"],
+    accent: "#0c1445",
+    year: "2025",
+    status: "Live",
+    image: "/sequence/jeskojets.png",
+    highlights: [
+      "Built a premium digital presence for a private jet charter brand.",
+      "Designed for trust and conversion with a high-end visual language.",
+      "Delivered a responsive experience tailored for an affluent audience.",
+    ],
+  },
+  {
+    slug: "findrealestate-property-platform",
+    title: "FindRealEstate - Property Platform",
+    shortTitle: "FindRealEstate",
+    category: "Real Estate Platform",
+    url: "https://findrealestate.com/",
+    description:
+      "Real estate search platform connecting buyers and sellers with expert agents and a clear path to finding properties.",
+    overview:
+      "A modern real estate platform built to simplify property discovery, agent connections, and the paperwork journey — all under one roof.",
+    tags: ["Real Estate", "Property Search", "Web Platform"],
+    accent: "#1a1a2e",
+    year: "2025",
+    status: "Live",
+    image: "/sequence/findrealestate.png",
+    highlights: [
+      "Built a full-featured property search and listing experience.",
+      "Integrated agent discovery and connection flows for buyers.",
+      "Delivered a clean, conversion-focused interface across the platform.",
+    ],
+  },
+  {
+    slug: "theraworldskin-beauty-website",
+    title: "TheRaWorldSkin - Beauty & Skincare Website",
+    shortTitle: "TheRaWorldSkin",
+    category: "Beauty & Skincare",
+    url: "https://www.theraworldskin.com/",
+    description:
+      "Skincare and beauty brand website built to showcase products and connect customers with a premium, curated experience.",
+    overview:
+      "A visually refined website for a skincare brand, focused on product discovery, brand storytelling, and creating a seamless path to purchase.",
+    tags: ["Beauty", "E-commerce", "Brand Website"],
+    accent: "#be8a6a",
+    year: "2025",
+    status: "Live",
+    image: "/sequence/theraworldskin.png",
+    highlights: [
+      "Crafted a premium brand experience for a skincare product line.",
+      "Designed product-focused layouts for intuitive discovery and trust.",
+      "Delivered a responsive, visually polished storefront experience.",
+    ],
+  },
+  {
+    slug: "silicon-infotech-corporate-website",
+    title: "Silicon Infotech - Corporate Website",
+    shortTitle: "Silicon Infotech",
+    category: "Marketing Website",
+    url: "https://silicon-infotech-website.vercel.app/",
+    description:
+      "Corporate website for a technology company with a professional product-facing presentation.",
+    overview:
+      "A clean corporate web presence built to present services, credibility, and company direction with clarity.",
+    tags: ["Next.js", "ReactJS", "Corporate Web"],
+    accent: "#0891b2",
+    year: "2025",
+    status: "Live",
+    image: "/sequence/silicon.png",
+    highlights: [
+      "Built a polished company-facing website experience.",
+      "Balanced clarity, speed, and trust-oriented design choices.",
+      "Focused on straightforward navigation and strong presentation.",
+    ],
+  },
+  {
     slug: "zrm-enterprise-crm",
     title: "ZRM - Enterprise CRM",
     shortTitle: "ZRM CRM",
@@ -192,27 +276,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "silicon-infotech-corporate-website",
-    title: "Silicon Infotech - Corporate Website",
-    shortTitle: "Silicon Infotech",
-    category: "Marketing Website",
-    url: "https://silicon-infotech-website.vercel.app/",
-    description:
-      "Corporate website for a technology company with a professional product-facing presentation.",
-    overview:
-      "A clean corporate web presence built to present services, credibility, and company direction with clarity.",
-    tags: ["Next.js", "ReactJS", "Corporate Web"],
-    accent: "#0891b2",
-    year: "2025",
-    status: "Live",
-    image: "/sequence/silicon.png",
-    highlights: [
-      "Built a polished company-facing website experience.",
-      "Balanced clarity, speed, and trust-oriented design choices.",
-      "Focused on straightforward navigation and strong presentation.",
-    ],
-  },
-  {
     slug: "synergy-claytech-business-website",
     title: "Synergy Claytech - Business Website",
     shortTitle: "Synergy Claytech",
@@ -274,23 +337,25 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "findrealestate-property-platform",
-    title: "FindRealEstate - Property Platform",
-    shortTitle: "FindRealEstate",
-    category: "Real Estate Platform",
-    url: "https://findrealestate.com/",
+    slug: "kicgroup-corporate-website",
+    title: "KIC Group - Corporate Website",
+    shortTitle: "KIC Group",
+    category: "Corporate Website",
+    url: "https://www.kicgroup.in/",
     description:
-      "Real estate search platform connecting buyers and sellers with expert agents and a clear path to finding properties.",
+      "Corporate website for KIC Group presenting their business, services, and brand identity with a professional digital presence.",
     overview:
-      "A modern real estate platform built to simplify property discovery, agent connections, and the paperwork journey — all under one roof.",
-    tags: ["Real Estate", "Property Search", "Web Platform"],
-    accent: "#1a1a2e",
+      "A polished corporate web presence built to communicate KIC Group's offerings, credibility, and company direction to a professional audience.",
+    tags: ["Corporate Web", "Business Site", "Frontend"],
+    accent: "#b91c1c",
     year: "2025",
     status: "Live",
+    image: "/sequence/kicgroup.png",
     highlights: [
-      "Built a full-featured property search and listing experience.",
-      "Integrated agent discovery and connection flows for buyers.",
-      "Delivered a clean, conversion-focused interface across the platform.",
+      "Delivered a professional corporate website aligned with brand identity.",
+      "Structured content for clear service discovery and company overview.",
+      "Shipped a responsive, trust-oriented design across all devices.",
     ],
   },
 ];
+
