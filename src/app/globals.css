@@ -578,3 +578,11 @@
 .home-light p[class*="muted-strong"] {
   color: #78716c;
 }
+
+/* ─── NAVBAR LIGHT MODE OVERRIDE ─────────────────────────── */
+/* Always show a black navbar header in light mode */
+.home-light nav[class*="fixed"] {
+  background: rgba(0, 0, 0, 0.92) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+}
