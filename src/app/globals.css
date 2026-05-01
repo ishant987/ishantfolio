@@ -388,7 +388,7 @@
     font-weight: 700;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: #0f766e;
+    color: #ea580c;
   }
 }
 
@@ -585,4 +585,25 @@
   background: rgba(0, 0, 0, 0.92) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(20px) !important;
+}
+
+/* Force navbar brand text to white in light mode */
+.home-light nav[class*="fixed"] a span,
+.home-light nav[class*="fixed"] a p {
+  color: #ffffff !important;
+}
+
+/* ─── PROJECT PAGE OVERRIDES ──────────────────────────────── */
+/* Override blue button-primary to orange on project pages */
+.project-page-light .button-primary,
+.project-page-light nav[class*="fixed"] .button-primary {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.30) !important;
+}
+
+/* Force navbar brand text to white on project pages */
+.project-page-light nav[class*="fixed"] a span,
+.project-page-light nav[class*="fixed"] a p {
+  color: #ffffff !important;
 }
