@@ -21,7 +21,7 @@ export const personalInfo = {
   intro:
     "Full-stack engineer from Kolkata building enterprise tools, AI workflows, business websites, and mobile products with a bias for clean execution.",
   email: "ishantshaw28@gmail.com",
-  phone: "+91 9432503221",
+  phone: "+91 6291121370",
   github: "https://github.com/ishant987",
   linkedin: "https://linkedin.com/in/ishantshaw13",
   location: "Kolkata, India",
